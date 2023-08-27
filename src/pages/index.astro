@@ -11,45 +11,40 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const uses: Array<{ title: string; desc: string; href: string }> = [
 	{
-		title: "Astro",
-		desc: "Build fast websites, faster.",
-		href: "https://astro.build",
+		title: "VSCode",
+		desc: "Because obviously",
+		href: "https://code.visualstudio.com",
 	},
 	{
-		title: "Astro Assets",
-		desc: "Built-in optimized asset support.",
-		href: "https://docs.astro.build/en/guides/assets/",
+		title: "Rider",
+		desc: "Visual Studio but better.",
+		href: "https://www.jetbrains.com/rider",
 	},
 	{
-		title: "Tailwind CSS",
-		desc: "Rapidly build modern websites without ever leaving your HTML.",
-		href: "https://tailwindcss.com",
+		title: "16 Inch M1 Mac",
+		desc: "The workhorse.",
+		href: "https://www.apple.com/macbook-pro/",
 	},
 	{
-		title: "Markdown",
-		desc: "Simple and easy-to-use markup language.",
-		href: "https://www.markdownguide.org/",
+		title: "Think 6.5 v2 Keyboard",
+		desc: "The keyboard I spent way too much money on.",
+		href: "https://graystudio.club/products/gb-think6-5-v2",
 	},
 	{
-		title: "MDX",
-		desc: "Markdown for the component era.",
-		href: "https://mdxjs.com/",
+		title: "Raycast",
+		desc: "Super slick extendable launcher for macOS",
+		href: "https://www.raycast.com/",
 	},
 	{
-		title: "Satori",
-		desc: "Generating png Open Graph images for blog posts.",
-		href: "https://github.com/vercel/satori",
+		title: "Arc Browser",
+		desc: "This browser changed the way I work.",
+		href: "https://arc.net/",
 	},
 	{
-		title: "Pagefind",
-		desc: "A fully static search library.",
-		href: "https://pagefind.app/",
-	},
-	{
-		title: "Astro Icon",
-		desc: "An easy to use Icon component for Astro.",
-		href: "https://github.com/natemoo-re/astro-icon#readme",
-	},
+		title: "Warp Terminal",
+		desc: "Rust-based terminal that allows me to work faster",
+		href: "https://www.warp.dev/",
+	}
 ];
 ---
 
@@ -74,7 +69,8 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 		</ul>
 	</section>
 	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Technologies</h2>
+		<h2 class="title mb-4 text-xl">Uses</h2>
+		<p class="mb-4 text-sm">Notable software and hardware that I use daily.</p>
 		<ul class="space-y-4 sm:space-y-2">
 			{
 				uses.map(({ href, title, desc }) => (
