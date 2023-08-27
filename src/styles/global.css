@@ -6,19 +6,19 @@
 	:root {
 		color-scheme: light;
 		--theme-bg: 250 250 250;
-		--theme-link: 86 124 119;
+		--theme-link: 210 54 105;
 		--theme-text: 34 39 42;
-		--theme-accent: 204 42 66;
+		--theme-accent: 210 54 105;
 		--theme-accent-2: 17 17 17;
-		--theme-quote: 204 42 66;
+		--theme-quote: 210 54 105;
 	}
 
 	:root.dark {
 		color-scheme: dark;
 		--theme-bg: 29 31 33;
-		--theme-link: 212 128 170;
+		--theme-link: 120 196 161;
 		--theme-text: 201 202 204;
-		--theme-accent: 43 188 137;
+		--theme-accent: 120 196 161;
 		--theme-accent-2: 238 238 238;
 		--theme-quote: 204 255 182;
 	}
@@ -28,6 +28,6 @@
 	}
 
 	html body {
-		@apply mx-auto flex h-full max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
+		@apply mx-auto flex h-full max-w-3xl flex-col bg-bgColor px-8 pt-16 text-sm font-normal text-textColor antialiased;
 	}
 }

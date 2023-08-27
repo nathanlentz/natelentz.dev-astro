@@ -28,8 +28,8 @@ export default {
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: [...fontFamily.sans],
-				serif: [...fontFamily.serif],
+				sans: ["Poppins", ...fontFamily.sans],
+				serif: ["Poppins", ...fontFamily.serif],
 			},
 			transitionProperty: {
 				height: "height",
