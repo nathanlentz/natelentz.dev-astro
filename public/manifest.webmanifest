@@ -1,7 +1,7 @@
 {
 	"name": "Nate Lentz | Dev, Father, Husband",
-	"short_name": "Astro_Cactus",
-	"description": "Starter blog site for Astro",
+	"short_name": "nate_lentz",
+	"description": "A blog by Nate Lentz",
 	"icons": [
 		{
 			"src": "/192x192.png",
@@ -16,6 +16,6 @@
 	],
 	"start_url": "/",
 	"background_color": "#1d1f21",
-	"theme_color": "#2bbc8a",
+	"theme_color": "#78C4A1",
 	"display": "standalone"
 }
