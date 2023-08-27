@@ -5,8 +5,11 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "astro": "astro",
+    "check": "astro check",
+    "postbuild": "pagefind --source dist",
     "preview": "astro preview",
-    "astro": "astro"
+    "format": "prettier -w --plugin-search-dir=. --cache ."
   },
   "dependencies": {
     "astro": "^2.10.14", 
