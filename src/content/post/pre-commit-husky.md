@@ -22,9 +22,10 @@ Pre-Commit hooks are a neat way to help keep code bases clean and avoid introduc
 We can start by adding [Husky to our project](https://typicode.github.io/husky/#/?id=install). If you are already using an older version of Husky (v4), you can skip the rest of this blog and just follow [this migration guide](https://typicode.github.io/husky/#/?id=migrate-from-v4-to-v6).
 
 ```bash
-npx husky-init && npm install       # npm
-npx husky-init && yarn install       # Yarn 1
-yarn dlx husky-init --yarn2 && yarn install # Yarn 2
+# npm
+npx husky-init && npm install
+# yarn
+npx husky-init && yarn install
 ```
 
 This does a few things:
@@ -37,8 +38,10 @@ This does a few things:
 [pretty-quick](https://github.com/azz/pretty-quick#readme) will run Prettier on your changed files. Add this as a dev dependency to your project.
 
 ```bash
-npm install --d pretty-quick        # npm
-yarn add -D pretty-quick            # Yarn
+# npm
+npm install --save-dev pretty-quick
+# yarn
+yarn add -D pretty-quick
 ```
 
 ### Configure the Hook
@@ -61,7 +64,6 @@ Then add this script to the pre-commit hook that was created under `.husky/pre-c
 . "$(dirname "$0")/_/husky.sh"
 
 npm run pre-commit-checks
-
 ```
 
 ### Commit!
