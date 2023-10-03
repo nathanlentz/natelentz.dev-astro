@@ -6,7 +6,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/SkipLink";
 import { siteConfig } from "@/site-config";
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 interface Props {
 	meta: SiteMeta;
@@ -20,8 +19,6 @@ const {
 <html lang={siteConfig.lang}>
 	<head>
 		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
-    <!-- <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@200;400;500;700;800&display=swap">
-    </GoogleFontsOptimizer> -->
 	</head>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ49QFTDS4"></script>
 	<script>
