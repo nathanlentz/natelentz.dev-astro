@@ -8,6 +8,11 @@ tags: ['tools']
 
 _This tutorial has not yet been updated to cover Prettier v3._
 
+>
+> This will be replaced in the near future with a tutorial using [`lint-staged`](https://github.com/okonet/lint-staged)
+> as that is agnostic to the linting tool being used
+>
+
 Pre-Commit hooks are a neat way to help keep code bases clean and avoid introducing unnecessary noise during the code review process. I commonly use pre commit hooks to run linting, tests, or check for other trivial things that need not be pointed out in Pull Requests leaving more time to focus on more important changes.
 
 [Husky](https://github.com/typicode/husky) makes using Git hooks quite easy but setup can be confusing with newer versions. Since v5 support of an entry in the `package.json` has been dropped so a lot of tutorials are out of date.
