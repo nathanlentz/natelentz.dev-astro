@@ -1,5 +1,5 @@
 ---
-title: 'Understanding code formatting'
+title: 'Understanding Code Formatting in Frontend solutions'
 publishDate: '31 August 2023'
 description: 'Say goodbye to code styling inconsistencies and pesky errors that slow you down.'
 tags: ['tools', 'frontend']
