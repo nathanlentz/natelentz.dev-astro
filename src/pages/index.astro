@@ -12,13 +12,23 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 const uses: Array<{ title: string; desc: string; href: string }> = [
 	{
 		title: "VSCode",
-		desc: "Because obviously.",
-		href: "https://code.visualstudio.com",
+		desc: "Primary IDE and general text editor.",
+    href: "https://code.visualstudio.com",
+  },
+  {
+		title: "iTerm + Fish + Neovim",
+		desc: "Slowly learning Neovim and Vim movements.",
+		href: "https://lazyvim.org",
 	},
 	{
 		title: "Rider",
 		desc: "Visual Studio but better.",
 		href: "https://www.jetbrains.com/rider",
+  },
+  {
+		title: "Logseq",
+		desc: "Notetaking.",
+		href: "https://logseq.com",
 	},
 	{
 		title: "Font: Dank Mono",
@@ -44,11 +54,6 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 		title: "Arc Browser",
 		desc: "This browser changed the way I work.",
 		href: "https://arc.net/",
-	},
-	{
-		title: "Warp Terminal",
-		desc: "Rust-based terminal that allows me to work faster.",
-		href: "https://www.warp.dev/",
 	}
 ];
 ---
@@ -57,7 +62,7 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 	<section>
 		<h1 class="title mb-6"></h1>
 		<p class="mb-4">
-			Hi, I’m a Senior Developer currently working at <a href="https://www.vervint.com" class="underline">Vervint</a> in Grand Rapids, MI. 
+			Hi, I’m a Senior Developer currently working at <a href="https://www.vervint.com" class="underline">Vervint</a> in Grand Rapids, MI.
 		</p>
 		<SocialList />
 	</section>
@@ -87,7 +92,7 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 							class="cactus-link inline-block"
 						>
 							{title}
-						</a>: 
+						</a>:
 						<p class="inline-block sm:mt-2">{desc}</p>
 					</li>
 				))
