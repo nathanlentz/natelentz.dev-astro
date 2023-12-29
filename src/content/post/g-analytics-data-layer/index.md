@@ -82,9 +82,7 @@ return (
   <Button onClick={() => onAddToCart(item, quantity)}
 )
 
-
 ```
-
 
 ### GTM eCommerce Setup
 Alright, time for the not fun part. If you work with marketers who do not know how to use GTM, you may be on the hook for doing the setup within GTM for handling what happens when eCommerce events are pushed to the Data Layer. This is the work to configure a trigger that performs work when specific events happen.
@@ -116,10 +114,65 @@ __The following assumes access to GTM for the property you are working in__
 
 Once you save all changes and submit the changes to your workspace, the trigger and tags should be ready to roll.
 
+You may be asking, well what does the end result actually do? How do my events reach Google Analytics? Do they get sent from Tag Manager then flow into Google Analytics? NO. They actually get sent directly from the browser to Google Analytics via the gtag api. The Tag you created above handles that for you. When events are passed into the data layer, the __Google Analytics GA4 Event__ tag handles the work of making an API call for you. You can see this in action within your Dev Tools Network tab after you push events that satisfy the Trigger to the data layer.
+
 ## Use with other Analytics tools
-We can leverage the existing Data Layer events we've implemented for additional Analytics tools without any additional code changes. For example, Marketing may want to send Order Revenue to Pixel or MSQ
+We can leverage the existing Data Layer events we've implemented for additional Analytics tools without any additional code changes. For example, Marketing may want to send Order Revenue to Pixel or Microsoft UET.
+
+We can achieve this by creating a custom User-Defined Variable and then referencing that Variable from a new Tag. This new User-Defined Variable will have its value set to the `value` field on an ecommerce event which represents order total.
+
+**1. Create a new Variable.**
+  - Set variable type to "Data Layer Variable"
+  - Set Data Layer Variable Name to "ecommerce.value"
+    - You can use dot notation against objects that are expected to exist in the data layer
+  - Save Changes
+
+```json
+{
+  "event": "purchase",
+  "ecommerce": {
+    value: "15.69",
+    items: []
+  }
+}
+
+```
+
+![UET Data Layer User-Defined Variable Config](./dlv_config.png)
 
 
+**2. Create a new Trigger**
+ - Create a trigger to fire on the event you want to track. In this example, we are going to create a trigger which fires when the "purchase" ecommerce event lands in the data layer.
+ - Set Trigger type to "Custom Event"
+ - Set Event Name to "purchase"
+ - Ensure this trigger fires on all custom events.
+ - Save Changes
+
+
+![Purchase Trigger](./purchase_trigger_config.png)
+
+
+**3. Create a new Tag to send Conversion to Third Party Analytics**
+  - Set tag type to "Custom HTML"
+  - Paste script in the HTML editor. Below is an example using UET to push a purchase event
+  - Set the Trigger to the new Trigger created from the previous step. When this trigger fires, the snippet will be executed on the website.
+  - Save Changes
+
+The main thing to notice here is how we are able to reference our User-Defined Variable directly from this script by using the double curly notation `{{ }}`. This allows us to have dynamic variables in our Tags and share values like Order Revenue across many different tags.
+
+```html
+<script>
+// Checkout
+window.uetq = window.uetq || [];
+window.uetq.push('event', 'Purchase', { 'event_category': 'Checkout', 'event_label': 'Purchase', 'revenue_value': {{dlv - UET - order revenue}}, 'currency': 'USD' });
+</script>
+```
+
+![UET Tag Configuration](./uet_tag_config.png)
+
+
+## Conclusion
+Working at a Consulting Agency you may find yourself responsible to be the GTM expert. I'm hoping this post helps shed some light on how the Data Layer works with Varaibles, Tags, and how you can get a basic implementation working.
 
 
 
