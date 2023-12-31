@@ -1,6 +1,6 @@
 ---
 title: 'Configuring Data Layer for Google Analytics'
-publishDate: '30 November 2023'
+publishDate: '29 December 2023'
 description: 'A developers guide to a technical implementation for using Data Layer to send eCommerce events to Google Analytics via Tag Manager'
 tags: ['tools', 'frontend', 'analytics', 'ecommerce']
 ---
