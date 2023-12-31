@@ -78,6 +78,10 @@ const handleApiResponse = (response: ApiResponse) => {
   }
 }
 ```
+
+In the `handleApiResponse` function, the switch expression is the `discriminated property` which allows Typescript to infer the union member type for each case. When this happens, Typescript is smart enough to tell us when we try to access properties which do not exist on the member. This improves our developer experience and code readability. Pretty neat.
+
+
 TypeScript discriminated unions provide flexibility for working with object types and object variations. The improved type safety makes discriminated unions a must have in your developer toolkit.
 
 Read more about [everyday types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) with Typescript.
