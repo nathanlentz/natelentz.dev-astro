@@ -10,14 +10,9 @@ const allPosts = await getCollection("post");
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const uses: Array<{ title: string; desc: string; href: string }> = [
-	{
-		title: "VSCode",
-		desc: "Primary IDE and general text editor.",
-    href: "https://code.visualstudio.com",
-  },
   {
 		title: "iTerm + Fish + Neovim",
-		desc: "Slowly learning Neovim and Vim movements.",
+		desc: "Vim made me writing code fun again.",
 		href: "https://lazyvim.org",
 	},
 	{
@@ -26,12 +21,12 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 		href: "https://www.jetbrains.com/rider",
   },
   {
-		title: "Logseq",
+		title: "Obsidian",
 		desc: "Notetaking.",
-		href: "https://logseq.com",
+		href: "https://obsidian.md/",
 	},
 	{
-		title: "Font: Dank Mono",
+		title: "Dank Mono",
 		desc: "Current coding typeface.",
 		href: "https://philpl.gumroad.com/l/dank-mono",
 	},
@@ -62,7 +57,7 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 	<section>
 		<h1 class="title mb-6"></h1>
 		<p class="mb-4">
-			Hi, I’m a Senior Developer currently working at <a href="https://www.vervint.com" class="underline">Vervint</a> in Grand Rapids, MI.
+			Hi, I’m a Lead Web Developer currently working at <a href="https://www.vervint.com" class="underline">Vervint</a> in Grand Rapids, MI.
 		</p>
 		<SocialList />
 	</section>
