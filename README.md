@@ -6,4 +6,4 @@
 * Stori
 * Pagefind
 
-This blog is based on the[Cactus theme](https://github.com/chrismwilliams/astro-theme-cactus).
+This blog is based on the [Cactus theme](https://github.com/chrismwilliams/astro-theme-cactus).
