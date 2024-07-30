@@ -3,7 +3,6 @@ import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import remarkUnwrapImages from "remark-unwrap-images";
-import prefetch from "@astrojs/prefetch";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
 // https://astro.build/config
@@ -27,8 +26,8 @@ export default defineConfig({
 			applyBaseStyles: false,
 		}),
 		sitemap(),
-		prefetch(),
 	],
+  prefetch: true,
 	compressHTML: true,
 	vite: {
 		optimizeDeps: {
