@@ -10,8 +10,8 @@ const allPosts = await getCollection("post");
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const uses: Array<{ title: string; desc: string; href: string }> = [
-  {
-		title: "iTerm + Fish + Neovim",
+	{
+		title: "Kitty + Fish + Neovim",
 		desc: "Vim made writing code fun again.",
 		href: "https://lazyvim.org",
 	},
@@ -19,8 +19,8 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 		title: "Rider",
 		desc: "Visual Studio but better.",
 		href: "https://www.jetbrains.com/rider",
-  },
-  {
+	},
+	{
 		title: "Obsidian",
 		desc: "Notetaking.",
 		href: "https://obsidian.md/",
@@ -49,7 +49,7 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 		title: "Arc Browser",
 		desc: "This browser changed the way I work.",
 		href: "https://arc.net/",
-	}
+	},
 ];
 ---
 
@@ -57,7 +57,10 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 	<section>
 		<h1 class="title mb-6"></h1>
 		<p class="mb-4">
-			Hi, I’m a Lead Web Developer currently working at <a href="https://www.vervint.com" class="underline">Vervint</a> in Grand Rapids, MI.
+			Hi, I’m a Lead Web Developer currently working at <a
+				href="https://www.vervint.com"
+				class="underline">Vervint</a
+			> in Grand Rapids, MI.
 		</p>
 		<SocialList />
 	</section>
@@ -87,8 +90,8 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 							class="cactus-link inline-block"
 						>
 							{title}
-						</a>:
-						<p class="inline-block sm:mt-2">{desc}</p>
+						</a>
+						:<p class="inline-block sm:mt-2">{desc}</p>
 					</li>
 				))
 			}
