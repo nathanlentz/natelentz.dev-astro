@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
 	title: "A blog by Nate Lentz",
 	// Meta property used as the default description meta property
-	description: "Personal blog by Nate Lentz. I write about code and other things.",
+	description: "Personal blog by Nate Lentz. Nate primarily writes about web technologies.",
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: "en-US",
 	// Meta property, found in src/components/BaseHead.astro L:42
@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
 };
 
 // Used to generate links in both the Header & Footer.
-export const menuLinks: Array = [
+export const menuLinks: Array<{title: string, path: string}> = [
 	{
 		title: "Home",
 		path: "/",

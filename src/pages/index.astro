@@ -51,9 +51,14 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 		href: "https://arc.net/",
 	},
 ];
+
+const meta = {
+	title: "Home",
+	description: "Nate is a Lead Software Engineer currently working at Vervint in Grand Rapids, MI."
+}
 ---
 
-<PageLayout meta={{ title: "Home" }}>
+<PageLayout meta={{ title: meta.title, description: meta.description}}>
 	<section>
 		<h1 class="title mb-6"></h1>
 		<p class="mb-4">
