@@ -2,6 +2,7 @@ import { defineConfig, sharpImageService } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import icon from 'astro-icon'
 import remarkUnwrapImages from "remark-unwrap-images";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
@@ -24,7 +25,7 @@ export default defineConfig({
     },
     integrations: [mdx({}), tailwind({
         applyBaseStyles: false,
-		}), sitemap(), react()],
+		}), sitemap(), react(), icon()],
   prefetch: true,
     compressHTML: true,
     vite: {

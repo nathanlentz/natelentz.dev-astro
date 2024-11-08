@@ -1,31 +1,36 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
-/** 
+/**
 	Uses https://github.com/natemoo-re/astro-icon#readme
 	Find icons @ https://icones.js.org/
 */
 const socialLinks = [
 	{
-		name: "mdi:github",
+		name: "simple-icons:github",
 		friendlyName: "Github",
 		link: "https://github.com/nathanlentz",
 	},
 	{
-		name: "mdi:linkedin",
+		name: "simple-icons:linkedin",
 		friendlyName: "LinkedIn",
 		link: "https://linkedin.com/in/nathanalentz",
 	},
 	{
-		name: "mdi:twitter",
-		friendlyName: "Twitter",
-		link: "https://twitter.com/nathanlentz",
+		name: "simple-icons:x",
+		friendlyName: "X",
+		link: "https://x.com/nathanlentz",
+	},
+	{
+		name: "simple-icons:bluesky",
+		friendlyName: "BlueSky",
+		link: "https://bsky.app/profile/natelentz.dev",
 	},
 ];
 ---
 
-<div class="flex flex-wrap items-end gap-x-4">
-	<p>Find me on</p>
+<div class="flex flex-wrap items-center gap-x-4">
+	<p>Find me on:</p>
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
 			socialLinks.map(({ link, name, friendlyName }) => (
