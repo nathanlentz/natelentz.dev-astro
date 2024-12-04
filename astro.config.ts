@@ -10,7 +10,6 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-    // ! Please remember to replace the following site property with your own domain
     site: "https://natelentz.dev/",
     markdown: {
         remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
