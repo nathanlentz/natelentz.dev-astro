@@ -14,7 +14,7 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
         shikiConfig: {
-            theme: "nord",
+            theme: "catppuccin-mocha",
             wrap: true,
         },
     },
