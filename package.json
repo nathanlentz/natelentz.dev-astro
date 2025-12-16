@@ -10,14 +10,16 @@
 		"check": "astro check",
 		"postbuild": "pagefind --source dist",
 		"preview": "astro preview",
-		"format": "pnpm run format:code",
-		"format:code": "biome format --write && prettier -w \"**/*\" --ignore-unknown --plugin-search-dir=. --cache ."
+		"lint": "run-p lint:*",
+		"lint:biome": "biome lint",
+		"lint:extra": "npm run --workspaces --if-present lint",
+		"format": "biome format --write ."
 	},
 	"dependencies": {
-		"@astrojs/react": "^4.3.0",
+		"@astrojs/react": "^4.4.2",
 		"@types/react": "^18.3.10",
 		"@types/react-dom": "^18.3.0",
-		"astro": "^5.13.5",
+		"astro": "^5.16.6",
 		"astro-icon": "1.1.2",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
@@ -27,9 +29,9 @@
 		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "^4.3.4",
-		"@astrojs/rss": "^4.0.12",
-		"@astrojs/sitemap": "^3.5.1",
+		"@astrojs/mdx": "^4.3.13",
+		"@astrojs/rss": "^4.0.14",
+		"@astrojs/sitemap": "^3.6.0",
 		"@astrojs/tailwind": "^6.0.2",
 		"@biomejs/biome": "^1.8.3",
 		"@iconify-json/simple-icons": "^1.2.11",
