@@ -2,6 +2,7 @@
 title: 'An introduction to Typescript Discriminated Unions'
 publishDate: '30 December 2023'
 description: 'Learn a Typescript pattern for reducing unnecessary optional values and improving type safety.'
+archived: true
 tags: ['frontend', 'typescript']
 ---
 

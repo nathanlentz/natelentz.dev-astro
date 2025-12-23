@@ -2,6 +2,7 @@
 title: 'Pre-Commit Linting with Husky & Prettier'
 publishDate: '30 April 2022'
 updatedDate: '27 August 2023'
+archived: true
 description: 'Learn how to setup pre-commit linting using Prettier and newer versions of Husky'
 tags: ['tools']
 ---

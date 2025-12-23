@@ -31,6 +31,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 		</div>
 	)
 }
+{data.archived && <p class="italic p-4 mb-4 bg-red-600 flex rounded-md">This post has been archived due to its age and may contain inaccurate or outdated information.</p>}
 <h1 class="title mb-3 sm:mb-1">{data.title}</h1>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">

@@ -2,6 +2,7 @@
 title: 'Versioning your Angular apps with Azure Pipelines'
 publishDate: '14 September 2023'
 description: 'Version your frontend web applications with Azure Piplines.'
+archived: true
 tags: ['tools', 'azure']
 ---
 

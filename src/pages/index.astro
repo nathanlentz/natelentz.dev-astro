@@ -10,96 +10,97 @@ const allPosts = await getCollection("post");
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const uses: Array<{ title: string; desc: string; href: string }> = [
-	{
-		title: "Ghostty + Fish + Neovim",
-		desc: "Vim made writing code fun again.",
-		href: "https://lazyvim.org",
-	},
-	{
-		title: "Rider",
-		desc: "Visual Studio but better.",
-		href: "https://www.jetbrains.com/rider",
-	},
-	{
-		title: "Obsidian",
-		desc: "Notetaking.",
-		href: "https://obsidian.md/",
-	},
-	{
-		title: "JetBrains Mono NerdFont",
-		desc: "Current coding typeface.",
-		href: "https://www.jetbrains.com/lp/mono/",
-	},
-	{
-		title: "14 Inch MacBook Pro (M4 Pro, 2025)",
-		desc: "The workhorse.",
-		href: "https://www.apple.com/macbook-pro/",
-	},
-	{
-		title: "Think 6.5 v2 Keyboard",
-		desc: "The keyboard I spent way too much money on.",
-		href: "https://graystudio.club/products/gb-think6-5-v2",
-	},
-	{
-		title: "Raycast",
-		desc: "Super slick extendable launcher for macOS.",
-		href: "https://www.raycast.com/",
-	},
-	{
-		title: "Arc Browser",
-		desc: "This browser changed the way I work.",
-		href: "https://arc.net/",
-	},
+  {
+    title: "Ghostty + Fish + Neovim",
+    desc: "Vim made writing code fun again.",
+    href: "https://lazyvim.org",
+  },
+  {
+    title: "Rider",
+    desc: "Visual Studio but better.",
+    href: "https://www.jetbrains.com/rider",
+  },
+  {
+    title: "Obsidian",
+    desc: "Notetaking.",
+    href: "https://obsidian.md/",
+  },
+  {
+    title: "JetBrains Mono NerdFont",
+    desc: "Current coding typeface.",
+    href: "https://www.jetbrains.com/lp/mono/",
+  },
+  {
+    title: "14 Inch MacBook Pro (M4 Pro, 2025)",
+    desc: "The workhorse.",
+    href: "https://www.apple.com/macbook-pro/",
+  },
+  {
+    title: "Think 6.5 v2 Keyboard",
+    desc: "The keyboard I spent way too much money on.",
+    href: "https://graystudio.club/products/gb-think6-5-v2",
+  },
+  {
+    title: "Raycast",
+    desc: "Super slick extendable launcher for macOS.",
+    href: "https://www.raycast.com/",
+  },
+  {
+    title: "Arc Browser",
+    desc: "This browser changed the way I work.",
+    href: "https://arc.net/",
+  },
 ];
 
 const meta = {
-	title: "Home",
-	description: "Nate is a Lead Software Engineer currently working at Vervint in Grand Rapids, MI.",
+  title: "Home",
+  description:
+    "Nate is a Lead Software Engineer currently working at Vervint in Grand Rapids, MI.",
 };
 ---
 
 <PageLayout meta={{ title: meta.title, description: meta.description }}>
-	<section>
-		<h1 class="title mb-6"></h1>
-		<p class="mb-4">
-			Hi, I’m a Lead Software Engineer currently working at <a
-				href="https://www.vervint.com"
-				class="underline">Vervint</a
-			> in Grand Rapids, MI.
-		</p>
-		<SocialList />
-	</section>
-	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-4 text-xl">Posts</h2>
-		<ul class="space-y-4 sm:space-y-2">
-			{
-				allPostsByDate.map((p) => (
-					<li class="flex flex-col gap-x-2 sm:flex-row">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
-	</section>
-	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Uses</h2>
-		<p class="mb-4 text-sm">Notable software and hardware that I use daily.</p>
-		<ul class="space-y-4 sm:space-y-2">
-			{
-				uses.map(({ href, title, desc }) => (
-					<li>
-						<a
-							href={href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="cactus-link inline-block"
-						>
-							{title}:
-						</a>
-						<p class="inline-block sm:mt-2"> {desc}</p>
-					</li>
-				))
-			}
-		</ul>
-	</section>
+  <section>
+    <h1 class="title mb-6"></h1>
+    <p class="mb-4">
+      Hi, I’m a Lead Software Engineer currently working at <a
+        href="https://www.vervint.com"
+        class="underline">Vervint</a
+      > in Grand Rapids, MI.
+    </p>
+    <SocialList />
+  </section>
+  <!-- <section aria-label="Blog post list" class="mt-16"> -->
+  <!-- 	<h2 class="title mb-4 text-xl">Posts</h2> -->
+  <!-- 	<ul class="space-y-4 sm:space-y-2"> -->
+  <!-- 		{ -->
+  <!-- 			allPostsByDate.map((p) => ( -->
+  <!-- 				<li class="flex flex-col gap-x-2 sm:flex-row"> -->
+  <!-- 					<PostPreview post={p} /> -->
+  <!-- 				</li> -->
+  <!-- 			)) -->
+  <!-- 		} -->
+  <!-- 	</ul> -->
+  <!-- </section> -->
+  <section class="mt-16">
+    <h2 class="title mb-4 text-xl">Uses</h2>
+    <p class="mb-4 text-sm">Notable software and hardware that I use daily.</p>
+    <ul class="space-y-4 sm:space-y-2">
+      {
+        uses.map(({ href, title, desc }) => (
+          <li>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cactus-link inline-block"
+            >
+              {title}:
+            </a>
+            <p class="inline-block sm:mt-2"> {desc}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </PageLayout>

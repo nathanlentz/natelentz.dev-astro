@@ -10,8 +10,10 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 
 const { post, as: Tag = "div", withDesc = false } = Astro.props;
 const postDate = post.data.updatedDate ?? post.data.publishDate;
+const isArchived = post.data.archived
 ---
 
+{isArchived && <div class="italic block font-semibold">ARCHIVED</div>}
 <FormattedDate date={postDate} class="min-w-[120px] text-gray-500" />
 <Tag>
   <a href={`/posts/${post.slug}/`} class="cactus-link" data-astro-prefetch>

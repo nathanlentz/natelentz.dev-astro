@@ -2,6 +2,7 @@
 title: 'Understanding Code Formatting in Frontend solutions'
 publishDate: '31 August 2023'
 description: 'Say goodbye to code styling inconsistencies and pesky errors that slow you down.'
+archived: true
 tags: ['tools', 'frontend']
 ---
 
@@ -44,7 +45,7 @@ ESLint is a linting tool that goes beyond code formatting. It helps you find and
 * [React](https://www.npmjs.com/package/eslint-plugin-react)
 * [Angular]
 
-Plugins and ESLint rules are configured via a ESLint config 
+Plugins and ESLint rules are configured via a ESLint config
 * .eslintrc
 * .eslint.json
 * .eslint.js
@@ -56,6 +57,3 @@ The TL;DR
 * .editorconfig provides project-wide settings for code editors and IDEs.
 * Prettier offers automated, opinionated code formatting.
 * ESLint focuses on code quality and can be configured to enforce coding style rules.
-
-
-

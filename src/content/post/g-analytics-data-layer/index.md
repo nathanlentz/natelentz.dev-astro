@@ -2,7 +2,9 @@
 title: 'Configuring Data Layer for Google Analytics'
 publishDate: '29 December 2023'
 description: 'A developers guide to a technical implementation for using Data Layer to send eCommerce events to Google Analytics via Tag Manager'
+archived: true
 tags: ['tools', 'frontend', 'analytics', 'ecommerce']
+
 ---
 
 ## GTM vs GA
@@ -173,9 +175,3 @@ window.uetq.push('event', 'Purchase', { 'event_category': 'Checkout', 'event_lab
 
 ## Conclusion
 Working at a Consulting Agency you may find yourself responsible to be the GTM expert. I'm hoping this post helps shed some light on how the Data Layer works with Varaibles, Tags, and how you can get a basic implementation working.
-
-
-
-
-
-

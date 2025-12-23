@@ -11,6 +11,8 @@ export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getCollection("post");
 	const allPostsByDate = sortMDByDate(allPosts);
 	const uniqueTags = getUniqueTags(allPosts);
+	// We'll pass all posts and let the component handle the filtering
+	// This ensures pagination works correctly across all posts, even if some are archived
 	return paginate(allPostsByDate, { props: { uniqueTags }, pageSize: 10 });
 }) satisfies GetStaticPaths;
 
@@ -20,6 +22,10 @@ interface Props {
 }
 
 const { page, uniqueTags } = Astro.props;
+
+// Filter posts into active and archived
+const activePosts = page.data.filter((p) => !p.data.archived);
+const archivedPosts = page.data.filter((p) => p.data.archived);
 
 const meta = {
 	title: "Posts",
@@ -33,7 +39,7 @@ const paginationProps = {
 			text: `← Previous Posts`,
 		},
 	}),
-	...(page.url.next && {
+		...(page.url.next && {
 		nextUrl: {
 			url: page.url.next,
 			text: `Next Posts →`,
@@ -46,16 +52,34 @@ const paginationProps = {
 	<h1 class="title mb-6">Posts</h1>
 	<div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
 		<section aria-label="Blog post list">
-			<ul class="space-y-8 text-start">
-				{
-					page.data.map((p) => (
+			{activePosts.length > 0 ? (
+				<ul class="space-y-8 text-start">
+					{activePosts.map((p) => (
 						<li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
 							<PostPreview post={p} as="h2" withDesc />
 						</li>
-					))
-				}
-			</ul>
+					))}
+				</ul>
+			) : (
+				<p class="text-center text-xl text-gray-500">
+					No active posts to display right now. Check back soon!
+				</p>
+			)}
 			<Pagination {...paginationProps} />
+
+			{archivedPosts.length > 0 && (
+				<section class="mt-16" aria-label="Archived blog post list">
+					<h2 class="mb-6 flex items-center text-2xl font-semibold">Archived Posts</h2>
+					<p class="mb-6 italic">These posts have been archived due to their age and may contain outated or inaccurate information.</p>
+					<ul class="space-y-8 text-start">
+						{archivedPosts.map((p) => (
+							<li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
+								<PostPreview post={p} as="h3" withDesc />
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
 		</section>
 		{
 			uniqueTags.length && (
