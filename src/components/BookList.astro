@@ -1,0 +1,51 @@
+---
+interface Book {
+	title: string;
+	image: { url: string } | null;
+	contributions: Array<{ author: { name: string } }>;
+}
+
+interface UserBook {
+	book: Book;
+	updated_at?: string;
+}
+
+interface Props {
+	books: UserBook[];
+	emptyMessage?: string;
+}
+
+const { books, emptyMessage = "No books found" } = Astro.props;
+
+function getBookAuthors(book: Book): string {
+	const authors = book.contributions.map((c) => c.author.name);
+	if (authors.length === 0) return "Unknown Author";
+	if (authors.length === 1) return authors[0];
+	if (authors.length === 2) return `${authors[0]} and ${authors[1]}`;
+	return `${authors[0]} et al.`;
+}
+---
+
+{
+	books.length > 0 ? (
+		<ul class="flex gap-6 overflow-x-auto pb-4">
+			{books.map(({ book }) => (
+				<li class="flex flex-col gap-2 flex-shrink-0 w-32">
+					{book.image?.url && (
+						<img
+							src={book.image.url}
+							alt={`Cover of ${book.title}`}
+							class="w-full aspect-[2/3] rounded object-cover shadow-md"
+						/>
+					)}
+					<div class="flex flex-col">
+						<h3 class="font-semibold text-sm leading-tight line-clamp-2">{book.title}</h3>
+						<p class="text-xs opacity-70 mt-1">{getBookAuthors(book)}</p>
+					</div>
+				</li>
+			))}
+		</ul>
+	) : (
+		<p class="text-sm opacity-70">{emptyMessage}</p>
+	)
+}

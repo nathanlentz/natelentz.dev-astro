@@ -1,5 +1,5 @@
 import type { APIContext, GetStaticPaths } from "astro";
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import satori, { type SatoriOptions } from "satori";
@@ -65,8 +65,8 @@ const markup = (title: string, pubDate: string) => html`<div
 	</div>
 </div>`;
 
-export async function get({ params: { slug } }: APIContext) {
-	const post = await getEntryBySlug("post", slug!);
+export async function GET({ params: { slug } }: APIContext) {
+	const post = await getEntry("post", slug!);
 	const title = post?.data.title ?? siteConfig.title;
 	const postDate = getFormattedDate(
 		post?.data.updatedDate ?? post?.data.publishDate ?? Date.now(),
@@ -77,13 +77,12 @@ export async function get({ params: { slug } }: APIContext) {
 	);
 	const svg = await satori(markup(title, postDate), ogOptions);
 	const png = new Resvg(svg).render().asPng();
-	return {
-		body: png,
-		encoding: "binary",
-	};
+	return new Response(png, {
+		headers: { "Content-Type": "image/png" },
+	});
 }
 
 export const getStaticPaths = (async () => {
 	const posts = await getCollection("post");
-	return posts.filter(({ data }) => !data.ogImage).map(({ slug }) => ({ params: { slug } }));
+	return posts.filter(({ data }) => !data.ogImage).map(({ id }) => ({ params: { slug: id } }));
 }) satisfies GetStaticPaths;
