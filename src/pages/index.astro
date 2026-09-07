@@ -1,7 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import figmaLogo from "@/assets/logos/figma.svg";
 import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
+import PreviousRoles from "@/components/PreviousRoles";
 import SocialList from "@/components/SocialList";
 import { sortMDByDate } from "@/utils";
 
@@ -55,7 +58,7 @@ const uses: Array<{ title: string; desc: string; href: string }> = [
 const meta = {
   title: "Home",
   description:
-    "Nate is a Lead Software Engineer currently working at Vervint in Grand Rapids, MI.",
+    "Nate is an Open Source Developer at Figma working on Payload, based in Grand Rapids, MI.",
 };
 ---
 
@@ -63,12 +66,23 @@ const meta = {
   <section>
     <h1 class="title mb-6"></h1>
     <p class="mb-4">
-      Hi, I’m a Lead Software Engineer currently working at <a
-        href="https://www.vervint.com"
-        class="underline">Vervint</a
-      > in Grand Rapids, MI.
+      Hi, I’m an Open Source Developer at <span
+        class="group relative inline-block"
+      >
+        <a href="https://www.figma.com" class="underline">Figma</a>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-2 origin-bottom -translate-x-1/2 translate-y-1 scale-90 opacity-0 transition duration-200 ease-out group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:transition-none sm:group-hover:translate-y-0 sm:group-hover:scale-100 sm:group-hover:opacity-100"
+          aria-hidden="true"
+        >
+          <Image src={figmaLogo} alt="" loading="eager" class="h-6 w-auto" />
+        </span>
+      </span>, working on <a href="https://payloadcms.com" class="underline">Payload</a
+      >, based in Grand Rapids, MI.
     </p>
-    <SocialList />
+    <PreviousRoles />
+    <div class="mt-6">
+      <SocialList />
+    </div>
   </section>
   <!-- <section aria-label="Blog post list" class="mt-16"> -->
   <!-- 	<h2 class="title mb-4 text-xl">Posts</h2> -->

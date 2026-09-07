@@ -1,0 +1,85 @@
+---
+import { Icon } from "astro-icon/components";
+
+const roles: Array<{
+	company: string;
+	note?: string;
+	title: string;
+	period: string;
+	href: string;
+	icon: string;
+}> = [
+	{
+		company: "Vervint",
+		note: "formerly Open Systems Technologies",
+		title: "Lead Software Engineer",
+		period: "2019 – 2026",
+		href: "https://www.vervint.com",
+		icon: "vervint",
+	},
+	{
+		company: "The C2 Group",
+		title: "Full Stack Developer",
+		period: "2018 – 2019",
+		href: "https://www.c2experience.com",
+		icon: "c2group",
+	},
+	{
+		company: "Springthrough",
+		title: "Developer",
+		period: "2016 – 2018",
+		href: "https://www.springthrough.com",
+		icon: "springthrough",
+	},
+];
+---
+
+<details class="group mt-4">
+	<summary
+		class="inline-flex cursor-pointer list-none items-center gap-x-1 text-sm sm:hover:text-link"
+	>
+		<svg
+			class="h-3 w-3 transition-transform group-open:rotate-90"
+			viewBox="0 0 12 12"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.75"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path d="M4.5 2.5 8 6l-3.5 3.5"></path>
+		</svg>
+		Previously
+	</summary>
+	<ul class="mt-4 space-y-4">
+		{
+			roles.map(({ company, note, title, period, href, icon }) => (
+				<li class="flex items-center gap-x-3">
+					<Icon
+						name={icon}
+						class="h-6 w-6 shrink-0"
+						aria-hidden="true"
+						focusable="false"
+					/>
+					<div class="min-w-0">
+						<p>
+							{title} at{" "}
+							<a
+								href={href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="cactus-link"
+							>
+								{company}
+							</a>
+							{note && <span class="text-textColor/60"> ({note})</span>}
+						</p>
+						<p class="text-xs text-textColor/60">{period}</p>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</details>
